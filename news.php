@@ -30,10 +30,10 @@ $produkte = [
       <div class="container">
         <div class="btn-group" role="group" aria-label="...">
 
-        <?php foreach ($produkte as $key => $item) { ?>
-          <button type='button' class='btn btn-default'><?= $item["title"] ?></button>
-        <?php }; ?>
-        
+<?php foreach ($produkte as $key => $item) { ?>
+    <button type='button' class='btn btn-default'><?= $item["title"] ?></button>
+<?php }; ?>
+
         </div>
       </div>
     </div>
@@ -41,110 +41,130 @@ $produkte = [
     <br />
   <div class="container">
 
-  <?php
+<?php
 
-  function add($a, $b)
-  {
-    return $a + $b;
-  };
+function add($a, $b)
+{
+return $a + $b;
+};
 
-  function mult($a, $b)
-  {
-    return $a * $b;
-  };
+function mult($a, $b)
+{
+return $a * $b;
+};
 
-  // constructor (public variablen)
-  class Car
-  {
-    private $ps;
+// constructor (public variablen)
+class Car
+{
+private $ps;
 
-    public function __construct($ps)
-    {
-      $this->ps = $ps;
-    }
+public function __construct($ps)
+{
+    $this->ps = $ps;
+}
 
-    public function drive($location)
-    {
-      echo "Das Auto fährt mit {$this->ps} PS in {$location}. ";
-    }
-  }
+public function drive($location)
+{
+    echo "Das Auto fährt mit {$this->ps} PS in {$location}. ";
+}
+}
 
-  $vw = new Car(140);
-  $vw->drive("Berlin");
+$vw = new Car(140);
+$vw->drive("Berlin");
 
-  // constructor (public variablen)
-  class Animal
-  {
-    private $name;
+// constructor (public variablen)
+class Animal
+{
+private $name;
 
-    public function __construct($name)
-    {
-      $this->name = $name;
-      $this->sayHello("the Bozz");
-    }
+public function __construct($name)
+{
+    $this->name = $name;
+    $this->sayHello("the Bozz");
+}
 
-    public function sayHello($greetingName)
-    {
-      echo "Hello to {$greetingName} from {$this->name}. ";
-    }
-  }
+public function sayHello($greetingName)
+{
+    echo "Hello to {$greetingName} from {$this->name}. ";
+}
+}
 
-  $parrot = new Animal("Frida");
+$parrot = new Animal("Frida");
 
-  // Vererbung
-  class SuperAnimal extends Animal
-  {
-    public function sayHello($greetingName)
-    {
-      parent::sayHello($greetingName);
-    }
+// Vererbung
+class SuperAnimal extends Animal
+{
+public $color;
 
-    public function fly($canFly)
-    {
-      echo "This animal {$canFly}.";
-    }
-  }
+public function __construct($name, $color)
+{
+    parent::__construct($name);
+    $this->color = $color;
+}
 
-  $superParrot = new SuperAnimal("Krähh");
-  $superParrot->sayHello("Citcat");
-  $superParrot->fly("can fly");
+public function sayHello($greetingName)
+{
+    parent::sayHello($greetingName);
+}
 
-  $superCat = new SuperAnimal("Citcat");
-  $superCat->fly("can't fly!");
+public function fly($canFly)
+{
+    echo "This animal {$canFly}.";
+}
+}
 
-  // getter and setter example
-  class Motocross
-  {
-    private $speed;
+$superParrot = new SuperAnimal("Krähh", "red");
+$superParrot->sayHello("Citcat");
+$superParrot->fly("can fly");
+echo $superParrot->color;
 
-    public function __construct($speed)
-    {
-      $this->speed = $speed;
-    }
+$superCat = new SuperAnimal("Citcat", "green");
+$superCat->fly("can't fly!");
 
-    public function getSpeed()
-    {
-      return $this->speed;
-    }
+// getter and setter example
+class Motocross
+{
+protected $speed;
 
-    public function setSpeed($speed)
-    {
-      $this->speed = $speed;
-    }
+public function __construct($speed)
+{
+    $this->speed = $speed;
+}
 
-    private function color($newColor)
-    {
-      $this->newColor = $newColor;
-    }
-  }
+public function getSpeed()
+{
+    return $this->speed;
+}
 
-  $yamaha = new Motocross("79 Ps");
-  echo $yamaha->getSpeed();
-  $yamaha->setSpeed("46 Ps");
-  echo $yamaha->getSpeed();
+public function setSpeed($speed)
+{
+    $this->speed = $speed;
+}
 
-  ?>
-  
+private function color($newColor)
+{
+    $this->newColor = $newColor;
+}
+}
+
+$yamaha = new Motocross("79 Ps, ");
+echo $yamaha->getSpeed();
+$yamaha->setSpeed("46 Ps, ");
+echo $yamaha->getSpeed();
+
+class Supermoto extends Motocross
+{
+public function __construct($speed)
+{
+    $this->speed = $speed;
+}
+}
+
+$kawasaki = new Supermoto("25 Ps");
+echo $kawasaki->getSpeed();
+
+?>
+
   </div>
 
 <?php require "footer.php"; ?>
