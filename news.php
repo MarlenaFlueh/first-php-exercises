@@ -20,19 +20,23 @@ require "nav.php";
 
 <?php
 
+function autoload($className) {
+    if (file_exists("./src/$className.php")) {
+        require "./src/$className.php";
+    }
+}
+spl_autoload_register("autoload");
+
 // car class
-require "src/Car.php";
 
 $vw = new Car(140);
 echo $vw->drive("Berlin");
 
 // Animal class
-require "src/Animal.php";
 
 $parrot = new Animal("Frida");
 
 // Vererbung SuperAnimal class
-require "src/SuperAnimal.php";
 
 $superParrot = new SuperAnimal("Krähh", "red");
 $superParrot->sayHello("Citcat");
@@ -43,7 +47,6 @@ $superCat = new SuperAnimal("Citcat", "green");
 echo $superCat->fly("can't fly!");
 
 // getter and setter example, Motocross class
-require "src/Motocross.php";
 
 $yamaha = new Motocross("79 Ps, ");
 echo $yamaha->getSpeed();
@@ -51,7 +54,6 @@ $yamaha->setSpeed("46 Ps, ");
 echo $yamaha->getSpeed();
 
 // Supermoto class
-require "src/Supermoto.php";
 
 $kawasaki = new Supermoto("25 Ps");
 echo $kawasaki->getSpeed();
