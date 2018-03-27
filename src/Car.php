@@ -10,6 +10,6 @@ public function __construct($ps)
 
 public function drive($location)
 {
-    return "Das Auto fährt mit {$this->ps} PS in {$location}. ";
+    return "Das Auto fährt {$this->ps} Ps in {$location}. ";
 }
 }

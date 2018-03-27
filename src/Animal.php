@@ -1,17 +1,17 @@
 <?php
 
-class Animal
+class Animal implements SayHelloInterface
 {
-private $name;
+    public $name;
 
-public function __construct($name)
-{
-    $this->name = $name;
-    $this->sayHello("the Bozz");
-}
+    public function __construct($name)
+    {
+        $this->name = $name;
+        $this->sayHello("the Bozz");
+    }
 
-public function sayHello($greetingName)
-{
-    echo "Hello to {$greetingName} from {$this->name}. ";
-}
+    public function sayHello($greetingName)
+    {
+        echo "Hello to {$greetingName} from {$this->name}. ";
+    }
 }

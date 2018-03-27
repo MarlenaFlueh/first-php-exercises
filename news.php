@@ -34,7 +34,12 @@ echo $vw->drive("Berlin");
 
 // Animal class
 
+function sayHello(SayHelloInterface $pet) {
+    return $pet->sayHello("MALLE");
+}
+
 $parrot = new Animal("Frida");
+echo sayHello($parrot);
 
 // Vererbung SuperAnimal class
 
