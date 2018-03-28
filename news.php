@@ -63,6 +63,8 @@ echo $yamaha->getSpeed();
 $kawasaki = new Supermoto("25 Ps");
 echo $kawasaki->getSpeed();
 
+}
+
 ?>
 
   </div>
