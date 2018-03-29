@@ -1,7 +1,8 @@
 <?php
-require "header.php";
-require "nav.php";
-include ("../src/database.php");
+require "elements/header.php";
+require "elements/nav.php";
+include("../src/database.php");
+
 ?>
 
     <br />
@@ -17,10 +18,14 @@ include ("../src/database.php");
             <?php $res = fetch_posts(); ?>
             <ul>
                 <?php foreach($res as $row): ?>
-                    <li><?php echo $row["title"] ?></li>
+                    <li>
+                        <a href="post.php?title=<?php echo $row["title"]; ?>">
+                            <?php echo $row["title"] ?>
+                        </a>
+                    </li>
                 <?php endforeach ?>
             </ul>
         </div>
     </div>
 
-<?php require "footer.php"; ?>
+<?php require "elements/footer.php"; ?>
